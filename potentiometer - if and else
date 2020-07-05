@@ -1,0 +1,30 @@
+int myPin=A2;
+int redPin=9;
+int readVal;
+float V2;
+void setup()
+{
+Serial.begin(9600);
+PinMode(myPin,INPUT);
+PinMode(myPin,OUTPUT);
+
+}
+
+void loop()
+{
+readVal=analogRead(myPin);
+V2=(5./1023.)*readVal;
+Serial.Println("POT VOLTAGE :");
+Serial.Println(V2);
+delay(250);
+//Don't try when keeping Serial monitor open - it wont work
+if(V2>4.0)
+{
+  digitalWrite(redPin,HIGH);
+}
+if(V2<4.0)
+{
+  digitalWrite(redPin,LOW);
+
+}
+}
