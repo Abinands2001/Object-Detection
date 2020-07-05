@@ -1,0 +1,14 @@
+int myVoltPin=A2;
+int readVal;
+int V2;
+void setup()
+{
+Serial.begin(9600);
+}
+void loop()
+{
+readVal=analogRead(myVoltPin);
+V2=(5./1023.)*readVal;
+Serial.readln(V2);
+delay(250);
+}
